@@ -2,12 +2,14 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Deploy') {
+        stage('Debug') {
             steps {
                 sh '''
-                cp -r * /var/www/project1/TechNova-Solutions/
-                sudo systemctl reload nginx
+                whoami
+                pwd
+                ls -la
+                touch test_from_pipeline.txt
+                cp test_from_pipeline.txt /var/www/project1/TechNova-Solutions/
                 '''
             }
         }
